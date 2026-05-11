@@ -493,6 +493,7 @@ public class StatusBarViewModel : MyReactiveObject
 
         await ConfigHandler.SaveConfig(_config);
         AppEvents.ReloadRequested.Publish();
+        _updateView?.Invoke(EViewAction.DispatcherRefreshIcon, null);
     }
 
     private bool AllowEnableTun()

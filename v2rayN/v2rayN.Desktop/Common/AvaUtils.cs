@@ -52,4 +52,17 @@ internal class AvaUtils
         using var bitmap = new Bitmap(AssetLoader.Open(uri));
         return new(bitmap);
     }
+
+    public static WindowIcon GetAppIcon()
+    {
+        var fileName = Utils.GetPath("NotifyIconTun.ico");
+        if (File.Exists(fileName))
+        {
+            return new(fileName);
+        }
+
+        var uri = new Uri(Path.Combine(Global.AvaAssets, "NotifyIconTun.ico"));
+        using var bitmap = new Bitmap(AssetLoader.Open(uri));
+        return new(bitmap);
+    }
 }
